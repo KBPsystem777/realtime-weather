@@ -1,0 +1,11 @@
+{
+  "name": "realtime-weather",
+  "version": "1.0.0",
+  "description": "realtime weather app using socket.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Koleen BP",
+  "license": "MIT"
+}
