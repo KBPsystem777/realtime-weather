@@ -11,8 +11,6 @@ $ cd realtime-weather
 
 $ npm install
 
-$ npm run build
-
 $ npm run start
 ```
 App will be available on http://localhost:7000
