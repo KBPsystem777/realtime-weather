@@ -13,12 +13,10 @@ $ npm install
 
 $ npm run start
 ```
-App will be available on http://localhost:7000
+App will be available on http://localhost:3000
 
 ### Dependencies
 ```
-"axios": "^0.18.0"
-"browserify": "^16.2.2"
-"express": "^4.16.3"
+"axios": "^0.18.0",
 "socket.io": "^2.1.1"
 ```
