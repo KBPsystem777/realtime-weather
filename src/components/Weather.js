@@ -24,14 +24,27 @@ class GetWeather extends React.Component {
         this.getLocation()
     }
 
+
+
     getLocation() {
         const location = window.navigator && navigator.geolocation
-        if(location) {
+        if(location) {               
             location.getCurrentPosition((position) => {
                 this.setState({
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude,
                 })
+            
+                const endpoint = `https://api.darksky.net/forecast/${key}/${this.state.latitude},${this.state.longitude}`
+                axios.get(endpoint)
+                .then((json) => {
+                    const returnData = json.data.currently.temperature;
+                    console.log(returnData)
+                    return returnData
+                })
+            
+            
+            
             }, (error) => {
                 this.setState({ latitude: 'err-latitude', longitude: 'err-longitude'})
             })
@@ -43,20 +56,12 @@ class GetWeather extends React.Component {
     render() {
         const { latitude, longitude, temparature } = this.state;
 
-        const endpoint = `https://api.darksky.net/forecast/${key}/${latitude},${longitude}`
-        console.log(endpoint)
-
-        axios.get(endpoint)
-            .then((json) => {
-                const returnData = json.data.currently.temperature;
-                console.log(returnData)
-        })
-
         return(
             <div>
-                <p>{latitude}</p>
-                <p>{longitude}</p>
-                <p>{temparature}</p>
+                <div>Your Location Info:</div>
+                <p>Latitude: {latitude}</p>
+                <p>Longitude: {longitude}</p>
+                <p>Temparature: {temparature}</p>
             </div>
         )
     }
